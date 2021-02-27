@@ -28,16 +28,12 @@ let countdownTimeout: NodeJS.Timeout;
 export function CountdownProvider({ children }: CountdownProviderProps) {
   const { startNewChallenge } = useContext(ChallengesContext);
 
-  const [time, setTime] = useState(getRandomTime() * 60);
+  const [time, setTime] = useState(25 * 60);
   const [isActive, setIsActive] = useState(false);
   const [hasFinished, setHasFinished] = useState(false);
 
   const minutes = Math.floor(time / 60);
   const seconds = time % 60;
-
-  function getRandomTime() {
-    return Math.floor(Math.random() * (3 - 1) + 1);
-  }
 
   function startCountdown() {
     setIsActive(true);
@@ -47,7 +43,7 @@ export function CountdownProvider({ children }: CountdownProviderProps) {
     clearTimeout(countdownTimeout);
     setIsActive(false);
     setHasFinished(false);
-    setTime(getRandomTime() * 60);
+    setTime(25 * 60);
   }
 
   useEffect(() => {
