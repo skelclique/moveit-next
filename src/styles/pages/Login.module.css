@@ -6,33 +6,20 @@
   height: 100vh;
   margin: 0 auto;
   
-  padding: 2.5rem 2rem;
+  padding: 5vh;
+}
+
+.loginContainer section > img {
+  position: relative;
+  right: 4vw;
+  width: 90vh;
 }
 
 .loginContainer section {
   display: grid;
 
   grid-template-columns: 1fr 1fr;
-  gap: 7rem;
-}
-
-.loginContainer section > img {
-  position: relative;
-  right: 2.5rem;
-  width: 43.75rem;
-  height: 41.25rem;
-}
-
-.loginContainer strong {
-  font-size: 2.25rem;
-  font-weight: 600;
-
-  color: var(--white);
-}
-
-.loginContainer section > div > img {
-  width: 23rem;
-  margin: 10rem 0 5rem 0;
+  gap: 8vw;
 }
 
 .loginContainer section > div {
@@ -40,19 +27,33 @@
   flex-direction: column;
 }
 
+.loginContainer section > div > img {
+  width:50vh;
+  margin: 20vh 0 15vh;
+}
+
+.loginContainer strong {
+  font-size: 5vh;
+  font-weight: 600;
+
+  color: var(--white);
+}
+
 .githubContainer {
   display: flex;
   flex-direction: row;
   align-items: center;
-  margin: 2rem 0;
-  max-width: 17rem;
-}
-
-.githubContainer img {
-  width: 2.25rem;
+  margin: 3vh 0;
+  max-width: 20vw;
 }
 
 .githubContainer p {
-  margin-left: 1rem;
+  font-size: 2.5vh;
+  line-height: 4vh;
+  margin-left: 2vh;
   color: #B2B9FF;
+} 
+
+.githubContainer img {
+  width: 10vh;
 }
