@@ -1,11 +1,20 @@
-import { useState } from 'react';
+import { useRouter } from 'next/router';
+import { useContext, useState } from 'react';
+import { UserContext } from '../contexts/UserContext';
 
 import styles from '../styles/components/Input.module.css';
 
 export function Input() {
+  const { changeUsername } = useContext(UserContext);
+
+  const router = useRouter();
+
   const [stylesButton, setStylesButton] = useState({
     background: 'var(--blue-dark)',
   });
+  const [isDisabled, setisDisabled] = useState(true);
+
+  const [username, setUsername] = useState('');
 
   return (
     <div className={styles.inputContainer}>
@@ -20,16 +29,27 @@ export function Input() {
         onBlur={(e) => {
           if (e.target.value === '') {
             e.target.value = 'Digite seu username';
-            setStylesButton({ background: 'var(--blue-dark)'})
+            setStylesButton({ background: 'var(--blue-dark)' });
+            setisDisabled(true);
           }
         }}
         onChange={(e) => {
-          e.target.value != '' || 'Digite seu username'
-            ? setStylesButton({ background: 'var(--green)' })
-            : null;
+          if (e.target.value != '' || 'Digite seu username') {
+            setStylesButton({ background: 'var(--green)' });
+            setUsername(e.target.value);
+            setisDisabled(false);
+          }
         }}
       />
-      <button type="button" style={stylesButton}>
+      <button
+        disabled={isDisabled}
+        style={stylesButton}
+        onClick={(e) => {
+          e.preventDefault();
+          router.push('/home');
+          changeUsername(username);
+        }}
+      >
         <img src="icons/arrow.svg" />
       </button>
     </div>
