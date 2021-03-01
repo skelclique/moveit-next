@@ -1,18 +1,8 @@
-.background {
-  background: var(--blue);
-}
-
 .loginContainer {
   height: 100vh;
-  margin: 0 auto;
-  
   padding: 5vh;
-}
-
-.loginContainer section > img {
-  position: relative;
-  right: 4vw;
-  width: 90vh;
+  margin: 0 auto;
+  background: var(--blue);
 }
 
 .loginContainer section {
@@ -22,13 +12,19 @@
   gap: 8vw;
 }
 
+.loginContainer section > img {
+  position: relative;
+  right: 4vw;
+  width: 90vh;
+}
+
 .loginContainer section > div {
   display: flex;
   flex-direction: column;
 }
 
 .loginContainer section > div > img {
-  width:50vh;
+  width: 50vh;
   margin: 20vh 0 15vh;
 }
 
@@ -41,19 +37,19 @@
 
 .githubContainer {
   display: flex;
-  flex-direction: row;
   align-items: center;
+
   margin: 3vh 0;
-  max-width: 20vw;
 }
 
 .githubContainer p {
-  font-size: 2.5vh;
-  line-height: 4vh;
+  font-size: 2vh;
+  line-height: 3vh;
+
   margin-left: 2vh;
-  color: #B2B9FF;
-} 
+  color: var(--text-highlight);
+}
 
 .githubContainer img {
-  width: 10vh;
+  width: 4.5vh;
 }
