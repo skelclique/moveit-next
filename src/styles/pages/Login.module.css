@@ -5,25 +5,25 @@
   background: var(--blue);
 }
 
-.loginContainer section {
+.gridContainer {
   display: grid;
 
   grid-template-columns: 1fr 1fr;
   gap: 8vw;
 }
 
-.loginContainer section > img {
+.gridContainer > img {
   position: relative;
   right: 4vw;
   width: 90vh;
 }
 
-.loginContainer section > div {
+.gridContainer > div {
   display: flex;
   flex-direction: column;
 }
 
-.loginContainer section > div > img {
+.gridContainer > div > img {
   width: 50vh;
   margin: 20vh 0 15vh;
 }
