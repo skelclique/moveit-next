@@ -1,4 +1,5 @@
 import Head from 'next/head';
+import { Input } from '../components/Input';
 
 import styles from '../styles/pages/Login.module.css';
 
@@ -21,6 +22,7 @@ export default function Login() {
               Faça login com seu Github <br /> para começar
             </p>
           </div>
+          <Input />
         </div>
       </section>
     </div>

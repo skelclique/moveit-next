@@ -28,7 +28,7 @@
   margin: 20vh 0 15vh;
 }
 
-.loginContainer strong {
+.gridContainer strong {
   font-size: 5vh;
   font-weight: 600;
 
@@ -46,7 +46,7 @@
   font-size: 2vh;
   line-height: 3vh;
 
-  margin-left: 2vh;
+  margin-left: 2.5vh;
   color: var(--text-highlight);
 }
 
