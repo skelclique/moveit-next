@@ -1,8 +1,8 @@
 import { createContext, ReactNode, useState } from 'react';
 
 interface UserContextData {
-  changeUsername: (username: string) => void;
   username: string;
+  handleUsername: (username: string) => void;
 }
 
 interface UserProviderProps {
@@ -14,16 +14,18 @@ export const UserContext = createContext({} as UserContextData);
 export function UserProvider({ children }: UserProviderProps) {
   const [username, setUsername] = useState('');
 
-  function changeUsername(username: string) {
+  function handleUsername(username: string) {
     setUsername(username);
   }
 
   return (
-    <UserContext.Provider value={{
-      changeUsername,
-      username
-    }}>
-        {children}
+    <UserContext.Provider
+      value={{
+        handleUsername,
+        username,
+      }}
+    >
+      {children}
     </UserContext.Provider>
   );
 }

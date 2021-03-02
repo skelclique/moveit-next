@@ -1,23 +1,32 @@
 import { useRouter } from 'next/router';
-import { useContext, useState } from 'react';
+import { FormEvent, useContext, useState } from 'react';
 import { UserContext } from '../contexts/UserContext';
 
 import styles from '../styles/components/Input.module.css';
 
 export function Input() {
-  const { changeUsername } = useContext(UserContext);
+  const { handleUsername } = useContext(UserContext);
 
   const router = useRouter();
 
   const [stylesButton, setStylesButton] = useState({
     background: 'var(--blue-dark)',
   });
-  const [isDisabled, setisDisabled] = useState(true);
 
+  const [isDisabled, setisDisabled] = useState(true);
   const [username, setUsername] = useState('');
 
+  function handleSubmit(e: FormEvent) {
+    e.preventDefault();
+    router.push('/home');
+    handleUsername(username);
+  }
+
   return (
-    <div className={styles.inputContainer}>
+    <form 
+      className={styles.inputContainer}
+      onSubmit={(e) => {handleSubmit(e)}}
+    >
       <input
         type="text"
         defaultValue="Digite seu username"
@@ -34,7 +43,7 @@ export function Input() {
           }
         }}
         onChange={(e) => {
-          if (e.target.value != '' || 'Digite seu username') {
+          if (e.target.value !== '') {
             setStylesButton({ background: 'var(--green)' });
             setUsername(e.target.value);
             setisDisabled(false);
@@ -42,16 +51,12 @@ export function Input() {
         }}
       />
       <button
+        type="submit"
         disabled={isDisabled}
         style={stylesButton}
-        onClick={(e) => {
-          e.preventDefault();
-          router.push('/home');
-          changeUsername(username);
-        }}
       >
         <img src="icons/arrow.svg" />
       </button>
-    </div>
+    </form>
   );
 }
