@@ -1,4 +1,5 @@
 import Head from 'next/head';
+import { Octokit } from '@octokit/core';
 import { GetServerSideProps } from 'next';
 
 import { CompletedChallenges } from '../components/CompletedChallenges';
@@ -13,6 +14,10 @@ import { ChallengesProvider } from '../contexts/ChallengesContext';
 import styles from '../styles/pages/Home.module.css';
 
 interface HomeProps {
+  data: {
+    avatar_url: string;
+    name: string;
+  };
   level: number;
   currentExperience: number;
   challengesCompleted: number;
@@ -34,7 +39,7 @@ export default function Home(props: HomeProps) {
         <CountdownProvider>
           <section>
             <div>
-              <Profile />
+              <Profile data={props.data} />
               <CompletedChallenges />
               <Countdown />
             </div>
@@ -50,10 +55,25 @@ export default function Home(props: HomeProps) {
 
 // Server Side Function // Call API
 export const getServerSideProps: GetServerSideProps = async (context) => {
-  const { level, currentExperience, challengesCompleted } = context.req.cookies;
+  const {
+    level,
+    currentExperience,
+    challengesCompleted,
+  } = context.req.cookies;
+
+  const username = String(context.query.username);
+
+  const octokit = new Octokit({
+    baseUrl: 'https://api.github.com',
+  });
+
+  const response = await octokit.request('GET /users/{username}', {
+    username
+  });
 
   return {
     props: {
+      data: response.data,
       level: Number(level),
       currentExperience: Number(currentExperience),
       challengesCompleted: Number(challengesCompleted),

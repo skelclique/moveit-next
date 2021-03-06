@@ -1,11 +1,9 @@
 import { useRouter } from 'next/router';
-import { FormEvent, useContext, useState } from 'react';
-import { UserContext } from '../contexts/UserContext';
+import { FormEvent, useState } from 'react';
 
 import styles from '../styles/components/Input.module.css';
 
 export function Input() {
-  const { handleUsername } = useContext(UserContext);
 
   const router = useRouter();
 
@@ -18,8 +16,7 @@ export function Input() {
 
   function handleSubmit(e: FormEvent) {
     e.preventDefault();
-    router.push('/home');
-    handleUsername(username);
+    router.push(`/home?username=${username}`);
   }
 
   return (
