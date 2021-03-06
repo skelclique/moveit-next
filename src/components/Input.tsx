@@ -16,7 +16,7 @@ export function Input() {
 
   function handleSubmit(e: FormEvent) {
     e.preventDefault();
-    router.push(`/home?username=${username}`);
+    router.push(`/home?username=${username}`, '/home');
   }
 
   return (
