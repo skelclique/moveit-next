@@ -16,3 +16,19 @@
   gap: 6.25rem;
   align-content: center;
 }
+
+@media (max-width: 1225px) {
+  .container {
+    height: unset;
+  }
+
+  .container section {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10vh;
+  }
+
+  .container section > div:last-child {
+    height: 60vh;
+  }
+}
