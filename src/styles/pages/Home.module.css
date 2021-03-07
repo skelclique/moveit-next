@@ -17,7 +17,7 @@
   align-content: center;
 }
 
-@media (max-width: 1225px) {
+@media (max-width: 900px) {
   .container {
     height: unset;
   }
@@ -25,6 +25,9 @@
   .container section {
     display: flex;
     flex-direction: column;
+    align-self: center;
+
+    max-width: 400px;
     margin-top: 10vh;
   }
 }
