@@ -53,3 +53,23 @@
 .githubContainer img {
   width: 4.5vh;
 }
+
+@media (max-width: 1225px) {
+  .gridContainer {
+    display: flex;
+    
+    flex-direction: column;
+  }
+
+  .gridContainer > img {
+    position: relative;
+    right: 30vw;
+    max-width: 900px;
+    width: 100%;
+  }  
+
+  .gridContainer > div {
+    position: absolute;
+    top: 0;
+  }
+}
