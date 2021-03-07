@@ -55,6 +55,11 @@
 }
 
 @media (max-width: 1225px) {
+  .loginContainer {
+    background-image: url('../../../public/icons/symbol.svg');
+    background-repeat: no-repeat;
+  }
+
   .gridContainer {
     display: flex;
     
@@ -62,10 +67,7 @@
   }
 
   .gridContainer > img {
-    position: relative;
-    right: 30vw;
-    max-width: 900px;
-    width: 100%;
+    display: none;
   }  
 
   .gridContainer > div {
