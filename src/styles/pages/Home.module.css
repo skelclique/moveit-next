@@ -27,8 +27,4 @@
     flex-direction: column;
     margin-top: 10vh;
   }
-
-  .container section > div:last-child {
-    height: 60vh;
-  }
 }
