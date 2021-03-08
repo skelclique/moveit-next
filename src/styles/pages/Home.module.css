@@ -17,7 +17,7 @@
   align-content: center;
 }
 
-@media (max-width: 1300px) {
+@media (max-width: 900px) {
   .container {
     height: none;
     max-width: none;
