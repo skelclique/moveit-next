@@ -37,9 +37,10 @@
   width: 4px;
   height: 56px;
 
+  cursor: default;
   background: var(--blue);
   border-radius: 0px 5px 5px 0px;
-  margin-top: -8px;
+  margin-top: -10px;
 }
 
 .linksHomeActive button:last-child {
