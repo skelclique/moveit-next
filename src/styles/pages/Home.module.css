@@ -17,9 +17,10 @@
   align-content: center;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1300px) {
   .container {
-    height: unset;
+    height: none;
+    max-width: none;
   }
 
   .container section {
